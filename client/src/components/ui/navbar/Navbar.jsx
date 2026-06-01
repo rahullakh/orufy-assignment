@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaUserCircle } from "react-icons/fa";
 import productIcon from "../../../assets/icons/Vector.svg";
-import SearchBar from "../searchbar/Searchbar";
+import SearchBar  from "../../ui/searchbar/SearchBar";
 const Navbar = ({ route }) => {
   const [profileImage, setProfileImage] = useState(null);
   const [search, setSearch] = useState("");
