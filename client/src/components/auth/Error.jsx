@@ -3,7 +3,7 @@ import Button from "../common/Button";
 const Error = ({ retry }) => {
   return (
     <div className="text-center">
-      <h1 className="text-4xl font-bold text-red-500">
+      <h1 className="text-3xl font-semibold text-red-500">
         Invalid OTP
       </h1>
 
