@@ -8,7 +8,7 @@ const EnterOTP = ({ success, error }) => {
   const [otp, setOtp] = useState("");
   
   const handleVerify = () => {
-    console.log("OTP:", otp);
+    
 
     if (otp === "123456") {
       success();
@@ -23,7 +23,9 @@ const EnterOTP = ({ success, error }) => {
       <h1 className="text-3xl font-bold mb-6">
        Login to your Product Account
       </h1>
-
+     <p className="mb-4 text-sm text-gray-600">
+      Demo OTP: <span className="font-semibold">123456</span>
+    </p>
       <OTPInput
         length={6}
         onChange={setOtp}

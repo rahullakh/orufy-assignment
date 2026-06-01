@@ -6,31 +6,23 @@ The core frontend structure and navigation flow have been implemented, while the
 
 ---
 
-###  Completed Features (Frontend)
+### ✅ Completed Features (Frontend)
 
 - React routing setup with navigation structure
 - Sidebar with working navigation links
 - Published / Unpublished tab UI with basic switching functionality
 - Organized component and folder structure
 
---- 
-## Note-> ## Demo Login / OTP
+---
 
-For testing purposes, OTP verification is currently implemented using a predefined static OTP.
-
-### Demo OTP
-123456
-
-> Note: This OTP is only for demonstration purposes and does not include real backend-based OTP generation or verification.
-
-###  Backend Status
+### ⚙️ Backend Status
 
 - Backend folder structure has been created
 - No APIs or business logic have been implemented yet
 
 ---
 
-###  Remaining Work
+### 🚧 Remaining Work
 
 - UI improvements and polishing
 - Backend API development and integration
@@ -39,7 +31,7 @@ For testing purposes, OTP verification is currently implemented using a predefin
 
 ---
 
-###  Note
+### 📌 Note
 
 Due to limited time constraints, the project has been submitted in its current stage focusing mainly on frontend structure and navigation flow.
 
