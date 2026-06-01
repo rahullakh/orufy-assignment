@@ -15,7 +15,7 @@ The core frontend structure and navigation flow have been implemented, while the
 
 ---
 
-### ⚙️ Backend Status
+###  Backend Status
 
 - Backend folder structure has been created
 - No APIs or business logic have been implemented yet
