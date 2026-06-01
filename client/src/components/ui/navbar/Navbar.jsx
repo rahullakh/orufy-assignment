@@ -1,10 +1,10 @@
-
-
 import { useState } from "react";
 import { FaChevronDown, FaUserCircle } from "react-icons/fa";
 import productIcon from "../../../assets/icons/Vector.svg";
-const Navbar = ({route}) => {
+import SearchBar from "../searchbar/Searchbar";
+const Navbar = ({ route }) => {
   const [profileImage, setProfileImage] = useState(null);
+  const [search, setSearch] = useState("");
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -13,28 +13,45 @@ const Navbar = ({route}) => {
     }
   };
 
-    const getTitle = () => {
+  const getTitle = () => {
     if (route.includes("products")) return "Products";
     return "Dashboard";
   };
-   const getIcon = () => {
+
+  const getIcon = () => {
     if (route.includes("products")) return productIcon;
     return null;
   };
 
+  const showSearchBar = route.includes("products");
+
   return (
-    <div className="h-14 w-full flex items-center justify-between  border border-[#D1D5DB] px-4 bg-white dark:bg-gray-900 border-b">
+    <div className="h-14 w-full flex items-center justify-between border border-[#D1D5DB] px-4 bg-white dark:bg-gray-900 border-b">
 
-<div className="flex items-center gap-2">
-          {getIcon() && (
-        <img src={getIcon()} className="w-5 h-5 mr-2" />
-      )}
-
-      <h1 className="text-lg font-bold">
-        {getTitle()}
-      </h1>
-     </div>
+    
       <div className="flex items-center gap-2">
+        {getIcon() && (
+          <img src={getIcon()} className="w-5 h-5 mr-2" />
+        )}
+
+        <h1 className="text-lg font-bold">
+          {getTitle()}
+        </h1>
+      </div>
+
+  
+      
+
+      <div className="flex items-center justify-between gap-4">
+        {showSearchBar && (
+        <div className="flex-1 flex justify-center">
+          <SearchBar
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search Services, Products..."
+          />
+        </div>
+      )}
 
         <input
           type="file"
@@ -48,8 +65,6 @@ const Navbar = ({route}) => {
           htmlFor="profileUpload"
           className="flex items-center gap-1 cursor-pointer px-2 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
         >
-
-   
           {profileImage ? (
             <img
               src={profileImage}
