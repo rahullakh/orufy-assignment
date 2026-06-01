@@ -6,7 +6,7 @@ The core frontend structure and navigation flow have been implemented, while the
 
 ---
 
-### ✅ Completed Features (Frontend)
+###  Completed Features (Frontend)
 
 - React routing setup with navigation structure
 - Sidebar with working navigation links
@@ -15,14 +15,14 @@ The core frontend structure and navigation flow have been implemented, while the
 
 ---
 
-### ⚙️ Backend Status
+###  Backend Status
 
 - Backend folder structure has been created
 - No APIs or business logic have been implemented yet
 
 ---
 
-### 🚧 Remaining Work
+###  Remaining Work
 
 - UI improvements and polishing
 - Backend API development and integration
@@ -31,7 +31,7 @@ The core frontend structure and navigation flow have been implemented, while the
 
 ---
 
-### 📌 Note
+###  Note
 
 Due to limited time constraints, the project has been submitted in its current stage focusing mainly on frontend structure and navigation flow.
 
