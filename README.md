@@ -14,7 +14,14 @@ The core frontend structure and navigation flow have been implemented, while the
 - Organized component and folder structure
 
 ---
+## Note-> ## Demo Login / OTP
 
+For testing purposes, OTP verification is currently implemented using a predefined static OTP.
+
+### Demo OTP
+123456
+
+> Note: This OTP is only for demonstration purposes and does not include real backend-based OTP generation or verification.
 ###  Backend Status
 
 - Backend folder structure has been created
