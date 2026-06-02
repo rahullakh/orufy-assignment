@@ -86,8 +86,8 @@ const ProductCard = ({ product, onEdit, onDelete, onPublish }) => {
   onClick={() => onPublish(product._id)}
   className={`flex items-center gap-1 font-semibold px-4 py-2 text-sm text-white rounded-lg transition-all ${
     product.isPublished
-      ? "bg-gradient-to-r from-[#000FB4] to-[#4050FF]"
-      : "bg-gradient-to-r from-[#52D407] to-[#37C100]"
+      ? "bg-gradient-to-r from-[#52D407] to-[#37C100]"
+      : "bg-gradient-to-r from-[#000FB4] to-[#4050FF]"
   }`}
 >
   <FaUpload />
