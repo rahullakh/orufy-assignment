@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaUserCircle } from "react-icons/fa";
 import productIcon from "../../../assets/icons/Vector.svg";
-import SearchBar  from "../../ui/searchbar/SearchBar";
+import SearchBar  from "../../ui/searchbar/SearchBar";6
 const Navbar = ({ route }) => {
   const [profileImage, setProfileImage] = useState(null);
   const [search, setSearch] = useState("");
@@ -26,7 +26,7 @@ const Navbar = ({ route }) => {
   const showSearchBar = route.includes("products");
 
   return (
-    <div className="h-14 w-full flex items-center justify-between border border-[#D1D5DB] px-4 bg-white dark:bg-gray-900 border-b">
+    <div className="h-14 w-full flex items-center justify-between border border-[#D1D5DB] px-4 py-2 bg-white dark:bg-gray-900 border-b">
 
     
       <div className="flex items-center gap-2">
@@ -42,7 +42,7 @@ const Navbar = ({ route }) => {
   
       
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-8">
         {showSearchBar && (
         <div className="flex-1 flex justify-center">
           <SearchBar
