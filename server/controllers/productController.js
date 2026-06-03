@@ -50,18 +50,52 @@ export const getProductById = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
+  
+
+    const baseUrl = process.env.BASE_URL;
+
+    const files = req.files || [];
+
+    let images = [];
+
+    if (files.length > 0) {
+      images = files.map(
+        (file) => `${baseUrl}/uploads/${file.filename}`
+      );
+    }
+
+    const updatedData = {
+      ...req.body,
+      stock: req.body.stock ? Number(req.body.stock) : 0,
+      mrp: req.body.mrp ? Number(req.body.mrp) : 0,
+      price: req.body.price ? Number(req.body.price) : 0,
+    };
+
+    if (images.length > 0) {
+      updatedData.images = images;
+    }
+
     const product = await Product.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      updatedData,
       { new: true }
     );
 
-    res.status(200).json(product);
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      });
+    }
+
+    return res.status(200).json(product);
+
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.log("UPDATE ERROR:", error);
+    return res.status(500).json({
+      message: error.message,
+    });
   }
 };
-
 
 export const deleteProduct = async (req, res) => {
   try {

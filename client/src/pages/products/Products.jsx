@@ -15,17 +15,17 @@ import {
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  
+  const [modalMode, setModalMode] = useState(null); 
+
+
+  const [editProduct, setEditProduct] = useState(null);
+
   const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
-
       const res = await getProducts();
-
-    
       setProducts(res?.data ?? []);
     } catch (error) {
       console.log("FETCH ERROR:", error);
@@ -39,50 +39,60 @@ const Products = () => {
     fetchProducts();
   }, [fetchProducts]);
 
-  const handleCreateProduct = async (product) => {
+
+  const openCreateModal = () => {
+    setModalMode("create");
+    setEditProduct(null);
+  };
+
+  const handleEditClick = (product) => {
+    setModalMode("edit");
+    setEditProduct(product);
+  };
+
+  const handleCreateProduct = async (formData) => {
     try {
-      const res = await createProduct(product);
+      const res = await createProduct(formData);
 
       if (res?.data) {
         setProducts((prev) => [...prev, res.data]);
       }
 
-      setShowModal(false);
+      closeModal();
     } catch (error) {
       console.log("CREATE ERROR:", error);
     }
   };
 
+
+  const handleUpdateProduct = async (formData, id) => {
+    try {
+      const res = await updateProduct(id, formData);
+
+      if (res?.data) {
+        setProducts((prev) =>
+          prev.map((item) =>
+            item._id === id ? res.data : item
+          )
+        );
+      }
+
+      closeModal();
+    } catch (error) {
+      console.log("EDIT ERROR:", error);
+    }
+  };
+
+
   const handleDelete = async (id) => {
     try {
       await deleteProduct(id);
-
       setProducts((prev) => prev.filter((item) => item._id !== id));
     } catch (error) {
       console.log("DELETE ERROR:", error);
     }
   };
 
-  const handleEdit = async (product) => {
-    try {
-      const updatedData = {
-        ...product,
-        name: `${product.name} (Updated)`,
-      };
-
-      const res = await updateProduct(product._id, updatedData);
-
-      if (res?.data) {
-        setProducts((prev) =>
-          prev.map((item) =>
-            item._id === product._id ? res.data : item
-          )
-        );
-      }
-    } catch (error) {
-      console.log("EDIT ERROR:", error);
-    }
-  };
 
   const handlePublish = async (id) => {
     try {
@@ -100,6 +110,12 @@ const Products = () => {
     }
   };
 
+
+  const closeModal = () => {
+    setModalMode(null);
+    setEditProduct(null);
+  };
+
   return (
     <div className="min-h-screen p-4 sm:p-6">
 
@@ -113,7 +129,7 @@ const Products = () => {
               "You can add products anytime.",
             ]}
             buttonText="Add your Products"
-            onClick={() => setShowModal(true)}
+            onClick={openCreateModal}
           />
         </div>
       ) : (
@@ -124,7 +140,7 @@ const Products = () => {
             </h2>
 
             <button
-              onClick={() => setShowModal(true)}
+              onClick={openCreateModal}
               className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-[#000FB4] to-[#4050FF] text-white rounded-lg"
             >
               + Add Products
@@ -137,18 +153,24 @@ const Products = () => {
             <ProductList
               products={products}
               onDelete={handleDelete}
-              onEdit={handleEdit}
+              onEdit={handleEditClick}
               onPublish={handlePublish}
             />
           )}
         </>
       )}
 
-      <AddProduct
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        onCreate={handleCreateProduct}
-      />
+    
+      {modalMode && (
+        <AddProduct
+          isOpen={true}
+          onClose={closeModal}
+          editData={modalMode === "edit" ? editProduct : null}
+          onCreate={handleCreateProduct}
+          onUpdate={handleUpdateProduct}
+        />
+      )}
+
     </div>
   );
 };
