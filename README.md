@@ -1,38 +1,81 @@
-## Project Status
+## 🚀 Project Overview
 
-This project is partially completed due to time constraints during the assignment period.
+This is a full-stack product management system built as an internship assignment using the **MERN stack (MongoDB, Express, React, Node.js)**.
 
-The core frontend structure and navigation flow have been implemented, while the backend is currently only initialized and not yet developed.
+The application supports CRUD operations, image upload, and frontend-backend integration with a responsive UI.
 
 ---
 
-### ✅ Completed Features (Frontend)
+## ✅ Completed Features
 
+### 🖥️ Frontend (React)
 - React routing setup with navigation structure
 - Sidebar with working navigation links
-- Published / Unpublished tab UI with basic switching functionality
-- Organized component and folder structure
+- Product listing UI (ProductCard, ProductList)
+- Add Product form with image upload functionality
+- Published / Unpublished tab UI with state switching
+- API integration with backend services
+- Clean and organized component structure
 
 ---
 
-###  Backend Status
-
-- Backend folder structure has been created
-- No APIs or business logic have been implemented yet
+### ⚙️ Backend (Node.js + Express)
+- Fully functional REST API setup
+- Product CRUD operations:
+  - Create Product
+  - Read Products
+  - Delete Product
+- MongoDB database integration (Mongoose)
+- File upload support (images using Multer)
+- CORS configuration for frontend communication
 
 ---
 
-### 🚧 Remaining Work
+## 🧠 OTP System
+- Static OTP implemented for assignment/demo purpose
+- Verification flow UI completed
 
-- UI improvements and polishing
-- Backend API development and integration
-- Full frontend-backend integration
+---
+
+## 🚧 Remaining Work / Future Improvements
+
+- ❌ Update Product Form UI (not implemented yet)
+-  Update Product API integration in frontend
+- UI polishing and advanced validation
+- Enhanced error handling
 - Additional feature enhancements
 
 ---
 
-### 📌 Note
+## 🛠️ Tech Stack
 
-Due to limited time constraints, the project has been submitted in its current stage focusing mainly on frontend structure and navigation flow.
+### Frontend:
+- React.js
+- Axios
+- React Router
 
-The backend is prepared for future development and integration.
+### Backend:
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Multer
+
+---
+
+## 📌 Project Summary
+
+This project demonstrates full-stack development skills including:
+- REST API development
+- Frontend UI development
+- CRUD operations (partial update pending)
+- Database integration
+- File upload handling
+- Frontend-backend communication
+
+---
+
+## 👨‍💻 Author
+
+Rahul Lakhera  
+Full Stack Developer (Internship Project)
