@@ -1,18 +1,42 @@
-import { IoSearch } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
 
-const SearchBar = ({ value, onChange, placeholder = "Search..." }) => {
+const SearchBar = ({
+  value,
+  onChange,
+  placeholder = "Search...",
+  compact = false, 
+}) => {
   return (
-    <div className="flex items-center gap-2 w-full sm:max-w-lg border border-gray-300  rounded-sm px-3 py-2 bg-gray-100 focus-within:border-[#4050FF] transition">
-      
-      <IoSearch className="text-gray-500 text-lg sm:text-xl" />
+    <div className={`w-full ${compact ? "max-w-md" : ""}`}>
 
-      <input
-        type="text"
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className="w-full outline-none font-semibold text-sm sm:text-base"
-      />
+      <div className="
+        flex items-center gap-2
+        border border-gray-300 dark:border-gray-600
+        rounded-md
+        bg-[#eeeff2] dark:bg-gray-800
+        focus-within:ring-2 focus-within:ring-blue-500
+        transition
+        px-3
+        py-2
+        hover:shadow-sm
+      ">
+
+       
+        <FaSearch className="text-gray-400 text-sm flex-shrink-0" />
+
+    
+        <input
+          type="text"
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          className="
+            w-full bg-transparent outline-none
+            text-sm text-gray-700 dark:text-gray-200
+          "
+        />
+      </div>
+
     </div>
   );
 };
