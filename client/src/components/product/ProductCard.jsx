@@ -5,11 +5,9 @@ const ProductCard = ({ product, onEdit, onDelete, onPublish }) => {
 
  
   const imageSrc =
-    product.image && product.image !== ""
-      ? product.image
-      : product.images && product.images.length > 0
-      ? product.images[0]
-      : null;
+  product.images?.length > 0
+    ? product.images[0]
+    : null;
 
   return (
     <div className="border rounded-xl shadow-sm bg-white p-4 flex flex-col h-full">
@@ -17,15 +15,11 @@ const ProductCard = ({ product, onEdit, onDelete, onPublish }) => {
     
       <div className="w-full h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
         {imageSrc ? (
-          <img
-            src={
-              imageSrc.startsWith("http")
-                ? imageSrc
-                : `http://localhost:5000/uploads/${imageSrc}`
-            }
-            alt={product.name}
-            className="w-full h-full object-cover"
-          />
+         <img
+  src={imageSrc}
+  alt={product.name}
+  className="w-full h-full object-cover"
+/>
         ) : (
           <span className="text-gray-400 text-sm">No Image</span>
         )}

@@ -3,8 +3,12 @@ import Product from "../models/Product.js";
 
 export const createProduct = async (req, res) => {
   try {
+    const baseUrl = process.env.BASE_URL;
+
     const images = req.files
-      ? req.files.map((file) => file.filename)
+      ? req.files.map(
+          (file) => `${baseUrl}/uploads/${file.filename}`
+        )
       : [];
 
     const product = await Product.create({
