@@ -148,7 +148,7 @@ const Products = () => {
           </div>
 
           {loading ? (
-            <p className="text-gray-500">Loading products...</p>
+            <p className="text-gray-500 text-center">Loading products...</p>
           ) : (
             <ProductList
               products={products}
