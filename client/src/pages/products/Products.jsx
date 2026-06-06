@@ -117,7 +117,7 @@ const Products = () => {
   };
 
   return (
-    <div className="min-h-screen py-4 px-4">
+    <div className="min-h-screen  p-4 sm:p-6 pb-10">
 
       {!loading && products.length === 0 ? (
         <div className="flex items-center justify-center min-h-[70vh]">
@@ -134,7 +134,7 @@ const Products = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
             <h2 className="text-xl font-semibold text-gray-800">
               Products
             </h2>
