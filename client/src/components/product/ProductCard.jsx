@@ -6,7 +6,7 @@ const ProductCard = ({ product, onEdit, onDelete, onPublish }) => {
   const imageSrc = product.images?.length > 0 ? product.images[0] : null;
 
   return (
-    <div className="border rounded-xl shadow-sm bg-white p-4 flex flex-col h-full">
+    <div className=" rounded-xl  border border-gray-300 bg-white p-4 flex flex-col h-full">
      <div className="w-full h-50 bg-gray-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
   {imageSrc ? (
     <img
