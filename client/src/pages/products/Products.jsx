@@ -117,7 +117,7 @@ const Products = () => {
   };
 
   return (
-    <div className="min-h-screen py-4">
+    <div className="min-h-screen py-4 px-4">
 
       {!loading && products.length === 0 ? (
         <div className="flex items-center justify-center min-h-[70vh]">
