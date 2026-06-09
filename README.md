@@ -25,6 +25,7 @@ The application supports CRUD operations, image upload, and frontend-backend int
   - Create Product
   - Read Products
   - Delete Product
+  - Add Products
 - MongoDB database integration (Mongoose)
 - File upload support (images using Multer)
 - CORS configuration for frontend communication
